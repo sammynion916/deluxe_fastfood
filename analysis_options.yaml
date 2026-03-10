@@ -1,0 +1,12 @@
+analysis_options:
+  analyzer:
+    errors:
+      unused_import: ignore
+      dead_code: ignore
+  linter:
+    rules:
+      prefer_single_quotes: true
+      always_specify_types: true
+      avoid_print: true
+      public_member_api_docs: false
+      lines_longer_than_80_chars: false
