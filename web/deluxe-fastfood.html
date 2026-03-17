@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Deluxe Fastfood</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Nunito+Sans:wght@400;600;700&family=Pacifico:400&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -245,7 +245,47 @@
     .footer-bottom-links a { color: #555; text-decoration: none; }
     .footer-bottom-links a:hover { color: #aaa; }
 
+    /* ─── ORDER MODAL ─── */
+    .modal {
+      position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 10000; font-family: inherit;
+    }
+    .modal-backdrop {
+      position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); backdrop-filter: blur(2px);
+    }
+    .modal-content {
+      position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); 
+      background: var(--cream); border-radius: 20px; box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+      max-width: 420px; width: 90%; max-height: 90vh; overflow: hidden;
+    }
+    .modal-header {
+      display: flex; justify-content: space-between; align-items: center; padding: 24px 28px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .modal-header h3 {
+      font-family: 'Playfair Display', serif; font-size: 24px; font-weight: 700; color: var(--dark); margin: 0;
+    }
+    .modal-close {
+      font-size: 28px; font-weight: 700; color: #999; cursor: pointer; line-height: 1; padding: 0 4px;
+    }
+    .modal-close:hover { color: var(--red); }
+    .modal-body { padding: 24px 28px 32px; text-align: center; }
+    .modal-location-btn {
+      flex: 1; min-width: 140px; padding: 18px 12px; background: #fff; border: 2px solid var(--border); 
+      border-radius: 16px; text-decoration: none; color: var(--text); font-weight: 700; font-size: 15px;
+      transition: all .2s; box-shadow: 0 4px 12px rgba(0,0,0,0.1); display: flex; flex-direction: column; align-items: center; gap: 4px;
+    }
+    .modal-location-btn:hover {
+      border-color: var(--red); background: var(--red); color: #fff; transform: translateY(-2px); box-shadow: 0 8px 20px rgba(204,34,34,0.3);
+    }
+    .modal-location-btn i { font-size: 20px; }
+    .modal-location-btn small { font-size: 12px; opacity: 0.8; font-weight: 600; }
+
+    @media (max-width: 600px) {
+      .modal-location-btn { min-width: 120px; padding: 16px 8px; font-size: 14px; }
+    }
+
     /* Responsive */
+
     @media (max-width: 900px) {
       .how-cards, .dishes-grid, .reviews-grid { grid-template-columns: 1fr 1fr; }
       .footer-grid { grid-template-columns: 1fr 1fr; }
@@ -350,7 +390,9 @@
     </div>
     <a href="#" class="nav-brand">
       <!-- REPLACE: swap this emoji with an <img> of your logo -->
-      <img src="../assets/images/logoo.png" alt="Deluxe Fastfood Logo"><span style="font-size:15px;margin-left:4px;color:#d7b124;">Fast Food</span>
+      <img src="../assets/images/logoo.png" alt="Deluxe Fastfood">
+      <span style="font-size:15px;margin-left:4px;color:#d7b124;font-family:'Pacifico', cursive;font-weight:700;">Fast Food</span>
+    
     </a>
     <div class="nav-right">
       <a href="#about">About</a>
@@ -434,7 +476,6 @@
   <!-- ══════════════ HOW YOU WANT IT ══════════════ -->
   <section class="how-section" id="order">
     <div class="section-title" style="text-align:center">How You Want It</div>
-    <div class="section-sub" style="text-align:center">Choose your preferred dining option</div>
     <div class="how-cards">
       <div class="how-card">
         <div class="how-icon">🚗</div>
@@ -474,9 +515,10 @@
           </div>
           <div class="dish-name">Loaded Fries</div>
           <div class="dish-desc">Loaded with your favorite toppings</div>
-          <a class="dish-btn" href="https://wa.me/233207387964?text=I%20want%20to%20order%3A%20Loaded%20Fries" target="_blank">Order</a>
+          <a class="dish-btn" href="#">Order</a>
         </div>
       </div>
+
 
       <!-- DISH 2 -->
       <div class="dish-card">
@@ -490,9 +532,10 @@
           </div>
           <div class="dish-name">Jollof Rice Special</div>
           <div class="dish-desc">Traditional jollof rice with grilled chicken and plantain</div>
-          <a class="dish-btn" href="https://wa.me/233207387964?text=I%20want%20to%20order%3A%20Jollof%20Rice%20Special" target="_blank">Order</a>
+          <a class="dish-btn" href="#">Order</a>
         </div>
       </div>
+
 
       <!-- DISH 3 -->
       <div class="dish-card">
@@ -506,9 +549,10 @@
           </div>
           <div class="dish-name">Fried yam with crispy chicken</div>
           <div class="dish-desc">Crispy fried yam served with golden fried chicken</div>
-          <a class="dish-btn" href="https://wa.me/233207387964?text=I%20want%20to%20order%3A%20Fried%20yam%20with%20crispy%20chicken" target="_blank">Order</a>
+          <a class="dish-btn" href="#">Order</a>
         </div>
       </div>
+
 
       <!-- DISH 4 -->
       <div class="dish-card">
@@ -522,9 +566,10 @@
           </div>
           <div class="dish-name">Fufu with light soup</div>
           <div class="dish-desc">Traditional fufu served with a light, flavorful soup</div>
-          <a class="dish-btn" href="https://wa.me/233207387964?text=I%20want%20to%20order%3A%20Fufu%20with%20light%20soup" target="_blank">Order</a>
+          <a class="dish-btn" href="#">Order</a>
         </div>
       </div>
+
 
       <!-- DISH 5 -->
       <div class="dish-card">
@@ -537,9 +582,10 @@
           </div>
           <div class="dish-name">Fried Plantain with beans</div>
           <div class="dish-desc">Crispy fried plantain served with protein-rich beans</div>
-          <a class="dish-btn" href="https://wa.me/233207387964?text=I%20want%20to%20order%3A%20Fried%20Plantain%20with%20beans" target="_blank">Order</a>
+          <a class="dish-btn" href="#">Order</a>
         </div>
       </div>
+
 
       <!-- DISH 6 -->
       <div class="dish-card">
@@ -552,9 +598,10 @@
           </div>
           <div class="dish-name">Banku with Okro stew and Fish</div>
           <div class="dish-desc">Steamed banku served with okro stew and fried fish</div>
-          <a class="dish-btn" href="https://wa.me/233207387964?text=I%20want%20to%20order%3A%20Banku%20with%20Okro%20stew%20and%20Fish" target="_blank">Order</a>
+          <a class="dish-btn" href="#">Order</a>
         </div>
       </div>
+
 
       <!-- DISH 7 -->
       <div class="dish-card">
@@ -567,11 +614,12 @@
           </div>
           <div class="dish-name">Waakye Special</div>
           <div class="dish-desc">Traditional Ghanaian dish made with fermented corn dough and fish</div>
-          <a class="dish-btn" href="https://wa.me/233207387964?text=I%20want%20to%20order%3A%20Waakye%20Special" target="_blank">Order</a>
+          <a class="dish-btn" href="#">Order</a>
         </div>
       </div>
 
       <!-- DISH 8 -->
+
       <div class="dish-card">
         <div class="dish-img">
           <img src="../assets/images/dish8.png" alt="Chek Chek Fried rice" onerror="this.parentElement.style.background='#b86040'"/>
@@ -579,15 +627,17 @@
         <div style="padding:16px 18px">
           <div class="dish-info" style="padding:0 0 6px">
             <span class="dish-cat">Chek Chek</span>
-            </div>
+          </div>
           <div class="dish-name">Chek Chek Fried rice</div>
+
           <div class="dish-desc">Flavorful fried rice with a variety of toppings</div>
-          <a class="dish-btn" href="https://wa.me/233207387964?text=I%20want%20to%20order%3A%20Chek%20Chek%20Fried%20rice" target="_blank">Order</a>
+          <a class="dish-btn" href="#">Order</a>
         </div>
       </div>
 
     </div>
   </section>
+
 
   <!-- ══════════════ OUR STORY ══════════════ -->
   <section class="story-section" id="about">
@@ -722,7 +772,32 @@
     </div>
   </footer>
 
+  <!-- Order Location Modal -->
+  <div id="orderModal" class="modal" style="display:none;">
+    <div class="modal-backdrop"></div>
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Choose Delivery Location</h3>
+        <span class="modal-close" onclick="hideOrderModal()">&times;</span>
+      </div>
+      <div class="modal-body">
+        <p id="modalDishName" style="text-align:center;margin-bottom:20px;font-weight:600;"></p>
+        <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+          <a id="takoBtn" class="modal-location-btn" href="#" onclick="handleOrderLocation('takoradi');return false;">
+            <i class="fas fa-map-marker-alt"></i> Takoradi<br>
+            <small>020 738 7964</small>
+          </a>
+          <a id="tarkBtn" class="modal-location-btn" href="#" onclick="handleOrderLocation('tarkwa');return false;">
+            <i class="fas fa-map-marker-alt"></i> Tarkwa<br>
+            <small>050 270 0252</small>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <script>
+
     // ── Hero Slideshow ──
     const slides = document.querySelectorAll('.hero-slide');
     let current = 0;
@@ -777,6 +852,50 @@
           });
         }
       });
+    });
+
+    // ── Order Modal Functions ──
+    let currentDish = '';
+
+    function showOrderModal(dishName) {
+      currentDish = dishName;
+      document.getElementById('modalDishName').textContent = `I'd like to order: ${dishName}`;
+      document.getElementById('orderModal').style.display = 'block';
+      document.body.style.overflow = 'hidden'; // Prevent scroll
+    }
+
+    function hideOrderModal() {
+      document.getElementById('orderModal').style.display = 'none';
+      document.body.style.overflow = '';
+    }
+
+    function handleOrderLocation(location) {
+      const phone = location === 'takoradi' ? '233207387964' : '233502700252';
+      const message = `Hello Deluxe Fastfood, I'd like to order ${currentDish}`;
+      const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+      window.open(url, '_blank');
+      hideOrderModal();
+    }
+
+    // Close modal on backdrop/esc
+    document.addEventListener('click', (e) => {
+      if (e.target.id === 'orderModal') hideOrderModal();
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') hideOrderModal();
+    });
+
+    // Dish Event Delegation - no lint errors
+    document.addEventListener('click', function(e) {
+      if (e.target && e.target.classList && e.target.classList.contains('dish-btn')) {
+        e.preventDefault();
+        var dishCard = e.target.closest('.dish-card');
+        var dishNameElement = dishCard.querySelector('.dish-name');
+        if (dishNameElement) {
+          var dishName = dishNameElement.textContent.trim();
+          showOrderModal(dishName);
+        }
+      }
     });
   </script>
 </body>
