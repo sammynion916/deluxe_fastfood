@@ -1,4 +1,4 @@
-# Restaurant Website (Delux Fastfood)
+# Restaurant Website (luxe Fastfood)
 
 This repository contains a restaurant website implemented as a static HTML page (with inline CSS/JS) and supporting assets.
 
