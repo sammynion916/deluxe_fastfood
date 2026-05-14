@@ -1,58 +1,67 @@
-# Restaurant Website
+# Restaurant Website (Delux Fastfood)
 
-This is a Flutter web project for a restaurant website. It showcases the restaurant's menu and provides an interactive user experience.
+This repository contains a restaurant website implemented as a static HTML page (with inline CSS/JS) and supporting assets.
 
 ## Project Structure
 
 ```
-restaurant-website
-├── lib
-│   ├── main.dart
-│   ├── screens
-│   │   └── home_screen.dart
-│   ├── widgets
-│   │   └── menu_widget.dart
-│   └── models
-│       └── dish.dart
-├── pubspec.yaml
-├── analysis_options.yaml
+luxe Fast food/luxe_fast_food/
 ├── README.md
-└── web
-    ├── index.html
-    └── main.dart.js
+├── luxe-fastfood.html            (optional/legacy, if present at root)
+├── web/
+│   └── luxe-fastfood.html
+├── assets/
+│   ├── fonts/
+│   │   └── Poppins-Regular.ttf
+│   ├── images/
+│   │   ├── hero1.jpg
+│   │   ├── hero2.jpg
+│   │   ├── hero3.jpg
+│   │   ├── hero4.png
+│   │   ├── dish*.png
+│   └── └── reviewer*.png
+│   
+└── (optional Flutter config files, if present)
+    ├── pubspec.yaml
+    ├── pubspec.lock
+    └── analysis_options.yaml
 ```
 
-## Features
+## What’s Included (from the HTML page)
 
-- Home screen displaying the restaurant's menu.
-- Interactive menu items with detailed descriptions.
-- Responsive design for various screen sizes.
+- Responsive navbar with mobile menu toggle.
+- Hero section slideshow.
+- Popular dishes grid.
+- Order modal that opens WhatsApp via `wa.me`.
+- Smooth scrolling for anchor links.
+- Reviews section + footer.
 
-## Setup Instructions
+## How to run
 
-1. Clone the repository:
-   ```
-   git clone https://github.com/yourusername/restaurant-website.git
-   ```
+### Option A: Serve with a local static server (recommended)
+This avoids any relative-path issues with `../assets/...`.
 
-2. Navigate to the project directory:
-   ```
-   cd restaurant-website
-   ```
+Run from the project root:
 
-3. Install the dependencies:
-   ```
-   flutter pub get
-   ```
+```bash
+python -m http.server 8000
+```
 
-4. Run the application:
-   ```
-   flutter run -d chrome
-   ```
+Then open:
 
-## Usage
+- `http://localhost:8000/web/deluxe-fastfood.html`
 
-Open the application in your browser to view the restaurant's offerings. Navigate through the menu to explore different dishes.
+### Option B: Open directly
+- Open `web/deluxe-fastfood.html` in your browser.
+
+(If images don’t load when opened directly, use Option A.)
+
+## Assets
+
+The page references images using relative paths like:
+- `../assets/images/...`
+
+So keep `web/` and `assets/` together as shown above.
 
 ## Contributing
 
